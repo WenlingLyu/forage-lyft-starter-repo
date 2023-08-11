@@ -1,17 +1,13 @@
+from tires.tires import Tires
 
-from tire.tire import Tire
 
-class Carrigan_tire(Tire):
-    def __init__(self, tires_one, tires_two, tires_three, tires_four):
-        super().__init__()  
-        self.tires_one = tires_one
-        self.tires_two = tires_two
-        self.tires_three = tires_three
-        self.tires_four = tires_four
-    
+class CarriganTires(Tires):
+    def __init__(self, tire_wear):
+        self.tire_wear = tire_wear
+
     def needs_service(self):
-        if self.tires_one +  self.tires_two + self.tires_three + self.tires_four >= 3:
-            return True
-        else:
-            return False
+        for tire in self.tire_wear:
+            if tire >= 0.9:
+                return True
+        return False
   
